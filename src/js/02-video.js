@@ -8,8 +8,11 @@ player.on('timeupdate',  throttle( e => {
     }, 1000)
     );
 
-player
-.setCurrentTime(localStorage.getItem('videoplayer-current-time'))
-.catch(function (error) {
+
+if (localStorage.getItem('videoplayer-current-time') !== null) {
+  player
+    .setCurrentTime(localStorage.getItem('videoplayer-current-time'))
+    .catch(function (error) {
     console.error(error)
 });
+};
